@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'registration_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -103,7 +105,12 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 12),
               TextButton(
                 onPressed: () {
-                  //
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegistrationPage(),
+                    ),
+                  );
                 },
                 child: const Text("¿No tienes cuenta? Registrarse"),
               ),
