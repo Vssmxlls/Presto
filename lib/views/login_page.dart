@@ -92,15 +92,20 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // TODO: Implement login logic
-                    }
+                    if (_formKey.currentState!.validate()) {}
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                   child: const Text("Iniciar sesion"),
                 ),
+              ),
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () {
+                  //
+                },
+                child: const Text("¿No tienes cuenta? Registrarse"),
               ),
             ],
           ),
