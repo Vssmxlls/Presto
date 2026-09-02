@@ -37,7 +37,12 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Align(alignment: Alignment.topLeft, child: PrestoTitle()),
-            SizedBox(height: 610, child: LoginPage()),
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: LoginPage(),
+              ),
+            ),
           ],
         ),
       ),

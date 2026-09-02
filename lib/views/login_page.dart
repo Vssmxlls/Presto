@@ -20,16 +20,6 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void _login() {
-    // validate() devuelve true solo si todos los campos pasan su validador.
-    if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Inicio de sesion exitoso")));
-      // TODO: aqui navegar a la siguiente pantalla.
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Text(
                 "Inicio de sesion",
                 style: TextStyle(
@@ -101,7 +91,11 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _login,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // TODO: Implement login logic
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
