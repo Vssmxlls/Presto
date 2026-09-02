@@ -22,8 +22,8 @@ flutter:
   assets:
     - assets/images/presto_logo2.jpeg
 
-  flutter_native_splash:
-    color: "#ffffff"
-    image: assets/images/presto_logo2.jpeg
-    android: true
-    ios: true
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/presto_logo2.jpeg
+  android: true
+  ios: true
