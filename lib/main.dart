@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-import 'layouts/login_page.dart';
+import 'views/login_page.dart';
 import 'layouts/presto_title.dart';
 
 void main() {
@@ -37,10 +37,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Align(alignment: Alignment.topLeft, child: PrestoTitle()),
-            SizedBox(
-              height: 610,
-              child: LoginPage(),
-            ),
+            SizedBox(height: 610, child: LoginPage()),
           ],
         ),
       ),
