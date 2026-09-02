@@ -10,6 +10,7 @@ dependencies:
   animate_do: ^5.1.0
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.8
 
 dev_dependencies:
   flutter_test:
