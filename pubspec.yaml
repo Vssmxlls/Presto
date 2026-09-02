@@ -21,10 +21,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/presto_logo2.jpeg
+    - assets/images/splash_screen_presto.png
 
-  flutter_native_splash:
-    color: "0xFFC9B6FF"
-    image: assets/images/splash_logo.png
-    android_gravity: center
-    android: true
-    ios: true
+flutter_native_splash:
+  color: "#C9B6FF"
+  image: assets/images/splash_screen_presto.png
+  android_gravity: center
+  android: true
+  ios: true
