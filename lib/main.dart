@@ -3,14 +3,18 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'layouts/presto_title.dart';
 
-void main() =>
-    runApp(MaterialApp(debugShowCheckedModeBanner: false, home: HomePage()));
+void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: HomePage()));
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
