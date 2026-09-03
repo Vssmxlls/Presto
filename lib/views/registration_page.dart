@@ -26,7 +26,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   void _register() {
     if (_formKey.currentState!.validate()) {
-      // El formulario es valido, proceder con el registro.
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Cuenta creada con exito")));
