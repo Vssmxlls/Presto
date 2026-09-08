@@ -24,7 +24,6 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 - [ ] Autenticación real (backend / base de datos)
 - [ ] Persistencia de usuarios y préstamos
 - [ ] Gestión de préstamos y devoluciones
-- [ ] Cálculo automático de multas por retraso
 - [ ] Panel de administración para bibliotecarios
 
 ---
