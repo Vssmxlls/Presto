@@ -22,7 +22,12 @@ flutter:
   assets:
     - assets/images/presto_logo2.jpeg
     - assets/images/splash_screen_presto.png
-
+icons_launcher:
+  image_path: assets/images/presto_logo2.jpeg
+  platforms:
+    android: true
+    ios: true
+ 
 flutter_native_splash:
   color: "#C9B6FF"
   image: assets/images/splash_screen_presto.png
