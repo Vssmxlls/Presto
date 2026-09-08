@@ -29,12 +29,12 @@ icons_launcher:
     ios: true
  
 flutter_native_splash:
-  color: "#C9B6FF"
+  color: "#fffef9"
   image: assets/images/splash_screen_presto.png
   android_gravity: center
   android: true
   ios: true
   android_12:
-    color: "#C9B6FF"
+    color: "#fffef9"
     image: assets/images/splash_screen_presto.png
     icon_background_color: "#C9B6FF"
