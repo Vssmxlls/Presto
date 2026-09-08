@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'search_book.dart';
 import 'registration_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -94,7 +95,14 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchBooks(),
+                        ),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
