@@ -16,17 +16,18 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/presto_logo2.jpeg
     - assets/images/splash_screen_presto.png
-icons_launcher:
+flutter_launcher_icons:
+  android: launcher_icon
+  ios: true
   image_path: assets/images/presto_logo2.jpeg
-  platforms:
-    android: true
-    ios: true
+  min_sdk_android: 21 
  
 flutter_native_splash:
   color: "#fffef9"
