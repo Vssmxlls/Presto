@@ -7,4 +7,3 @@ void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const LoginScreen()));
-}

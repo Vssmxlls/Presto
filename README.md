@@ -21,7 +21,7 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 - [x] Splash screen compatible con Android 12+ (`android_12`)
 - [x] Inicio de sesión con validación de formulario
 - [x] Registro de nuevos usuarios con validación de contraseña y confirmación
-- [x] Navegación entre inicio de sesión y registro
+- [x] Flujo de autenticación: Login → Registro → Login → Home
 - [x] Pantalla principal (Home) con bienvenida, perfil y sección de préstamos
 - [x] Catálogo de libros con búsqueda en tiempo real y sugerencias por título/autor
 - [x] Buscador de libros como layout reutilizable (`SearchBooksView`)
@@ -52,8 +52,9 @@ lib/
 ├── models_books/
 │   └── book.dart               # Modelo de datos Book y catálogo de ejemplo
 ├── views/
+│   ├── login_screen.dart       # Pantalla de entrada: degradado + formulario de login
 │   ├── home_page.dart          # Pantalla principal: bienvenida, perfil, préstamos y buscador
-│   ├── login_page.dart         # Pantalla de inicio de sesión
+│   ├── login_page.dart         # Formulario de inicio de sesión
 │   └── registration_page.dart  # Pantalla de registro de usuario
 └── main.dart                   # Punto de entrada de la app
 
@@ -126,7 +127,7 @@ Bienvenida con el nombre de usuario, avatar de perfil, sección de préstamos (c
 Formulario con validación de usuario y contraseña, con opción de redirigir al registro si el usuario no tiene cuenta.
 
 ### Registro de usuario
-Formulario con validación de nombre, correo electrónico, contraseña (mínimo 6 caracteres) y confirmación de contraseña.
+Formulario con validación de nombre, correo electrónico, contraseña (mínimo 6 caracteres) y confirmación de contraseña. Al completar el registro, la app vuelve al inicio de sesión para que el usuario ingrese con sus nuevas credenciales.
 
 ### Búsqueda de libros
 Catálogo de libros con búsqueda en tiempo real y sugerencias por título o autor, usando `SearchDelegate` de Flutter. El buscador es un layout reutilizable (`SearchBooksView`) que muestra el catálogo completo y filtra las coincidencias mientras escribes.
@@ -136,8 +137,7 @@ Catálogo de libros con búsqueda en tiempo real y sugerencias por título o aut
 ## 🗺️ Roadmap
 
 - [ ] Conectar login y registro a una base de datos (local con SQLite o remota con Firebase/API propia)
-- [ ] Implementar lógica de autenticación real
-- [ ] Conectar la pantalla Home tras la autenticación
+- [ ] Implementar lógica de autenticación real (validar credenciales contra la BD)
 - [ ] Agregar gestión de estado (Provider / Riverpod / Bloc)
 - [ ] Sistema de préstamos: solicitar, devolver, historial
 - [ ] Notificaciones de devoluciones próximas a vencer
