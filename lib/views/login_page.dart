@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'search_book.dart';
+import 'home_page.dart';
 import 'registration_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SearchBooks(),
+                          builder: (context) => const HomePage(),
                         ),
                       );
                     }

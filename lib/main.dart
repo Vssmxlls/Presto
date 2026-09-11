@@ -1,51 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-import 'views/login_page.dart';
-import 'layouts/presto_title.dart';
+import 'views/home_page.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: HomePage()));
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(30),
-            bottomRight: Radius.circular(30),
-          ),
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFE8F1FF),
-              Color(0xFFD6E4FF),
-              Color(0xFFD6E4FF),
-              Color(0xFFE8DFFF),
-            ],
-          ),
-        ),
-        child: Column(
-          children: [
-            Align(alignment: Alignment.topLeft, child: PrestoTitle()),
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: LoginPage(),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

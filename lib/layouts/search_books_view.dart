@@ -2,45 +2,73 @@ import 'package:flutter/material.dart';
 
 import '../models_books/book.dart';
 
-class SearchBooks extends StatefulWidget {
-  const SearchBooks({super.key});
+class SearchBooksView extends StatelessWidget {
+  const SearchBooksView({super.key});
 
-  @override
-  State<SearchBooks> createState() => _SearchBooksState();
-}
-
-class _SearchBooksState extends State<SearchBooks> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Buscar Libros"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showSearch(context: context, delegate: _CustomSearchDelegate());
-            },
-            icon: const Icon(Icons.search),
-          ),
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: catalog.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: const Icon(Icons.book),
-            title: Text(catalog[index].title),
-            subtitle: Text(catalog[index].author),
-          );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: const [
+        _SearchBar(),
+        SizedBox(height: 12),
+        Expanded(child: BookCatalog()),
+      ],
+    );
+  }
+}
+
+class _SearchBar extends StatelessWidget {
+  const _SearchBar();
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(30),
+      elevation: 2,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: () {
+          showSearch(context: context, delegate: _CustomSearchDelegate());
         },
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            children: [
+              Icon(Icons.search, color: Colors.black54),
+              SizedBox(width: 8),
+              Text(
+                'Buscar libros...',
+                style: TextStyle(color: Colors.black54, fontSize: 16),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
 
-class _CustomSearchDelegate extends SearchDelegate {
-  _CustomSearchDelegate();
+class BookCatalog extends StatelessWidget {
+  const BookCatalog({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: catalog.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          leading: const Icon(Icons.book),
+          title: Text(catalog[index].title),
+          subtitle: Text(catalog[index].author),
+        );
+      },
+    );
+  }
+}
+
+class _CustomSearchDelegate extends SearchDelegate {
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
