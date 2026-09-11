@@ -18,9 +18,11 @@ Presto es una aplicación móvil y de escritorio construida con **Flutter**, dis
 Este proyecto está en desarrollo activo. Actualmente incluye:
 
 - [x] Pantalla de inicio con splash screen personalizado
+- [x] Splash screen compatible con Android 12+ (`android_12`)
 - [x] Inicio de sesión con validación de formulario
-- [x] Registro de nuevos usuarios con validación de contraseña
-- [x] Catálogo de libros con búsqueda y filtrado por título/autor
+- [x] Registro de nuevos usuarios con validación de contraseña y confirmación
+- [x] Navegación entre inicio de sesión y registro
+- [x] Catálogo de libros con búsqueda en tiempo real y sugerencias por título/autor
 - [ ] Autenticación real (backend / base de datos)
 - [ ] Persistencia de usuarios y préstamos
 - [ ] Gestión de préstamos y devoluciones
@@ -33,6 +35,7 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 - **[Flutter](https://flutter.dev/)** — framework de UI multiplataforma
 - **Dart** — lenguaje de programación
 - **[flutter_native_splash](https://pub.dev/packages/flutter_native_splash)** — pantalla de carga nativa personalizada
+- **[flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)** — generación de íconos de aplicación
 - **[animate_do](https://pub.dev/packages/animate_do)** — animaciones de UI
 
 ---
@@ -42,13 +45,14 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 ```
 lib/
 ├── layouts/
-│   └── presto_title.dart      # Encabezado con logo y nombre de la app
-├── models_books/
+│   └── presto_title.dart       # Encabezado con logo y nombre de la app
+├── models/
 │   └── book.dart               # Modelo de datos Book y catálogo de ejemplo
 ├── views/
+│   ├── home_page.dart          # Pantalla principal (en desarrollo)
 │   ├── login_page.dart         # Pantalla de inicio de sesión
 │   ├── registration_page.dart  # Pantalla de registro de usuario
-│   └── search_book.dart        # Búsqueda y listado de libros
+│   └── search_book.dart        # Búsqueda y listado de libros con sugerencias
 └── main.dart                   # Punto de entrada de la app
 
 assets/
@@ -97,7 +101,21 @@ assets/
 
 ---
 
+## 🛠️ Configuración de recursos nativos
+
+Para regenerar el splash screen o los íconos tras modificar `pubspec.yaml`:
+
+```bash
+flutter pub run flutter_native_splash:create   # Splash screen
+dart run flutter_launcher_icons:generate       # Íconos de app
+```
+
+---
+
 ## 🧩 Funcionalidades
+
+### Splash screen
+Splash nativo personalizado con soporte para Android 12+ mediante la sección `android_12` en el `pubspec.yaml`.
 
 ### Inicio de sesión
 Formulario con validación de usuario y contraseña, con opción de redirigir al registro si el usuario no tiene cuenta.
@@ -106,13 +124,14 @@ Formulario con validación de usuario y contraseña, con opción de redirigir al
 Formulario con validación de nombre, correo electrónico, contraseña (mínimo 6 caracteres) y confirmación de contraseña.
 
 ### Búsqueda de libros
-Catálogo de libros con búsqueda en tiempo real por título o autor, usando `SearchDelegate` de Flutter.
+Catálogo de libros con búsqueda en tiempo real y sugerencias por título o autor, usando `SearchDelegate` de Flutter. La pantalla principal muestra el catálogo completo y el buscador filtra las coincidencias mientras escribes.
 
 ---
 
 ## 🗺️ Roadmap
 
 - [ ] Conectar login y registro a una base de datos (local con SQLite o remota con Firebase/API propia)
+- [ ] Implementar lógica de autenticación real
 - [ ] Implementar navegación completa post-login (pantalla Home)
 - [ ] Agregar gestión de estado (Provider / Riverpod / Bloc)
 - [ ] Sistema de préstamos: solicitar, devolver, historial
