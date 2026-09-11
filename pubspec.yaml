@@ -1,4 +1,4 @@
-name: presto_first
+name: presto
 description: "Sistema de prestamos bibliotecarios"
 publish_to: 'none'
 version: 0.1.0+1
