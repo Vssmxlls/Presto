@@ -43,18 +43,12 @@ class _WelcomeSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          const CircleAvatar(
-            radius: 24,
-            child: Icon(Icons.person),
-          ),
+          const CircleAvatar(radius: 24, child: Icon(Icons.person)),
           const SizedBox(width: 12),
           const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Bienvenido/a,',
-                style: TextStyle(color: Colors.black54),
-              ),
+              Text('Bienvenido/a,', style: TextStyle(color: Colors.black54)),
               Text(
                 'Nombre de usuario',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -62,18 +56,13 @@ class _WelcomeSection extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          IconButton(
-            onPressed: _openProfile,
-            icon: const Icon(Icons.settings),
-          ),
+          IconButton(onPressed: _openProfile, icon: const Icon(Icons.settings)),
         ],
       ),
     );
   }
 
-  void _openProfile() {
-    // TODO: navegar a la pantalla de perfil
-  }
+  void _openProfile() {}
 }
 
 class _LoansSection extends StatelessWidget {

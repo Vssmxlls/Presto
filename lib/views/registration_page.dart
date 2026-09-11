@@ -29,6 +29,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Cuenta creada con exito")));
+
+      // Volver al login para que el usuario inicie sesion.
+      Navigator.pop(context);
     }
   }
 
