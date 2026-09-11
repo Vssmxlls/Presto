@@ -22,7 +22,9 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 - [x] Inicio de sesión con validación de formulario
 - [x] Registro de nuevos usuarios con validación de contraseña y confirmación
 - [x] Navegación entre inicio de sesión y registro
+- [x] Pantalla principal (Home) con bienvenida, perfil y sección de préstamos
 - [x] Catálogo de libros con búsqueda en tiempo real y sugerencias por título/autor
+- [x] Buscador de libros como layout reutilizable (`SearchBooksView`)
 - [ ] Autenticación real (backend / base de datos)
 - [ ] Persistencia de usuarios y préstamos
 - [ ] Gestión de préstamos y devoluciones
@@ -45,14 +47,14 @@ Este proyecto está en desarrollo activo. Actualmente incluye:
 ```
 lib/
 ├── layouts/
-│   └── presto_title.dart       # Encabezado con logo y nombre de la app
-├── models/
+│   ├── presto_title.dart       # Encabezado con logo y nombre de la app
+│   └── search_books_view.dart  # Buscador reutilizable con catálogo y sugerencias
+├── models_books/
 │   └── book.dart               # Modelo de datos Book y catálogo de ejemplo
 ├── views/
-│   ├── home_page.dart          # Pantalla principal (en desarrollo)
+│   ├── home_page.dart          # Pantalla principal: bienvenida, perfil, préstamos y buscador
 │   ├── login_page.dart         # Pantalla de inicio de sesión
-│   ├── registration_page.dart  # Pantalla de registro de usuario
-│   └── search_book.dart        # Búsqueda y listado de libros con sugerencias
+│   └── registration_page.dart  # Pantalla de registro de usuario
 └── main.dart                   # Punto de entrada de la app
 
 assets/
@@ -117,6 +119,9 @@ dart run flutter_launcher_icons:generate       # Íconos de app
 ### Splash screen
 Splash nativo personalizado con soporte para Android 12+ mediante la sección `android_12` en el `pubspec.yaml`.
 
+### Pantalla principal (Home)
+Bienvenida con el nombre de usuario, avatar de perfil, sección de préstamos (con datos de ejemplo) y el buscador de libros integrado como layout reutilizable.
+
 ### Inicio de sesión
 Formulario con validación de usuario y contraseña, con opción de redirigir al registro si el usuario no tiene cuenta.
 
@@ -124,7 +129,7 @@ Formulario con validación de usuario y contraseña, con opción de redirigir al
 Formulario con validación de nombre, correo electrónico, contraseña (mínimo 6 caracteres) y confirmación de contraseña.
 
 ### Búsqueda de libros
-Catálogo de libros con búsqueda en tiempo real y sugerencias por título o autor, usando `SearchDelegate` de Flutter. La pantalla principal muestra el catálogo completo y el buscador filtra las coincidencias mientras escribes.
+Catálogo de libros con búsqueda en tiempo real y sugerencias por título o autor, usando `SearchDelegate` de Flutter. El buscador es un layout reutilizable (`SearchBooksView`) que muestra el catálogo completo y filtra las coincidencias mientras escribes.
 
 ---
 
@@ -132,7 +137,7 @@ Catálogo de libros con búsqueda en tiempo real y sugerencias por título o aut
 
 - [ ] Conectar login y registro a una base de datos (local con SQLite o remota con Firebase/API propia)
 - [ ] Implementar lógica de autenticación real
-- [ ] Implementar navegación completa post-login (pantalla Home)
+- [ ] Conectar la pantalla Home tras la autenticación
 - [ ] Agregar gestión de estado (Provider / Riverpod / Bloc)
 - [ ] Sistema de préstamos: solicitar, devolver, historial
 - [ ] Notificaciones de devoluciones próximas a vencer
